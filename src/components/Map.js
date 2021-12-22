@@ -23,7 +23,7 @@ const Map = () => {
     <MapContainer
       center={positionISS}
       zoom={2}
-      scrollWheelZoom={true}
+      scrollWheelZoom={false}
       minZoom={2}
       maxZoom={7}
     >

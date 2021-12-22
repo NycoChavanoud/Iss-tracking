@@ -17,8 +17,11 @@ function App() {
 
   return (
     <div className="home-page">
-      <Map />
-      <CardIssInfo />
+      <h1>Welcome on bord - ISS TRACK APP</h1>
+      <div className="dashboard">
+        <Map />
+        <CardIssInfo />
+      </div>
     </div>
   );
 }

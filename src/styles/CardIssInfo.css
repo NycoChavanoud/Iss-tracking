@@ -1,9 +1,9 @@
 .information-live-container {
-  width: 90%;
+  width: 85%;
   max-width: 1024px;
   height: auto;
   border-radius: 20px;
-  margin: 15px auto;
+  margin: 30px auto;
   background-color: #353434;
   color: orangered;
   padding: 15px;
@@ -14,6 +14,7 @@
 .iss-data-container {
   height: 120px;
   min-width: 280px;
+  background: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +22,6 @@
   border-radius: 10px;
   margin-left: 10px;
   padding: 0px 10px;
-  box-shadow: 0px 0px 8px 2px #f1f1f1;
 }
 
 .data-api {
