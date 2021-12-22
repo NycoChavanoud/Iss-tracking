@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useDispatch, useSelector } from "react-redux";
+import { getIssFetch } from "../actions/actions";
 import L from "leaflet";
 import "../styles/Map.css";
 
@@ -14,11 +16,22 @@ const IssIcon = () => {
 // Map
 
 const Map = () => {
-  const position = [45.764043, 4.835659];
+  const centerPosition = [45.764043, 4.835659];
+  const dispatch = useDispatch();
+  const iss = useSelector((state) => state.issReducer.iss);
+  const latitude = iss.iss_position.latitude;
+  const longitude = iss.iss_position.longitude;
+  const positionISS = [latitude, longitude];
+
+  useEffect(() => {
+    setInterval(() => {
+      dispatch(getIssFetch());
+    }, 1000);
+  }, [dispatch]);
 
   return (
     <MapContainer
-      center={[45.764043, 4.835659]}
+      center={centerPosition}
       zoom={2}
       scrollWheelZoom={false}
       minZoom={2}
@@ -29,7 +42,7 @@ const Map = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       />
 
-      <Marker position={position} icon={IssIcon()}>
+      <Marker position={positionISS} icon={IssIcon()}>
         <Popup>ISS position</Popup>
       </Marker>
     </MapContainer>

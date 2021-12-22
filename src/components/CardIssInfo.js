@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/CardIssInfo.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getIssFetch } from "../actions/actions";
@@ -14,14 +14,15 @@ const CardIssInfo = () => {
 
   //redux persist
 
+  useEffect(() => {
+    setInterval(() => {
+      dispatch(getIssFetch());
+    }, 1000);
+  }, [dispatch]);
+
   return (
     <div className="information-live-container">
-      <button
-        className="btn-iss-tracking"
-        onClick={() => dispatch(getIssFetch())}
-      >
-        iss tracking
-      </button>
+      <button className="btn-iss-tracking">iss tracking</button>
       <div className="iss-data-container">
         <h4>
           connection status :{" "}
