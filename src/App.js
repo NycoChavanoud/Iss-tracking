@@ -1,28 +1,14 @@
-import React, { useEffect } from "react";
-import CardIssInfo from "./components/CardIssInfo";
-import { useDispatch } from "react-redux";
-import { getIssFetch } from "./redux/actions/actions";
-import Map from "./components/Map";
+import React from "react";
+import Home from "./pages/Home";
 import "./styles/App.css";
 
 function App() {
-  const dispatch = useDispatch();
-
-  //dispatching data every seconds
-  useEffect(() => {
-    setInterval(() => {
-      dispatch(getIssFetch());
-    }, 1000);
-  }, [dispatch]);
-
   return (
-    <div className="home-page">
-      <h1>Welcome on bord - ISS TRACK APP</h1>
-      <div className="dashboard">
-        <Map />
-        <CardIssInfo />
+    <>
+      <div className="app-page">
+        <Home />
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import CardIssInfo from "../components/CardIssInfo";
 import { useDispatch } from "react-redux";
-import { getIssFetch } from "./actions/actions";
+import { getIssFetch } from "../redux/actions/actions";
+import CardIssInfo from "../components/CardIssInfo";
 import Map from "../components/Map";
 import "../styles/Home.css";
 
