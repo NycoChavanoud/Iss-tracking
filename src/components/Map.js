@@ -1,39 +1,29 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useDispatch, useSelector } from "react-redux";
-import { getIssFetch } from "../actions/actions";
+import { useSelector } from "react-redux";
+
 import L from "leaflet";
 import "../styles/Map.css";
 
-// Change the leaflet Market by the ISS Icon
+// Change the leaflet Marker by the ISS Icon
 const IssIcon = () => {
   return L.icon({
     iconUrl: require("../assets/icons/international-space-station.png"),
-    iconSize: [30, 30],
+    iconSize: [40, 40],
   });
 };
 
-// Map
-
 const Map = () => {
-  //const centerPosition = [45.764043, 4.835659];
-  const dispatch = useDispatch();
   const iss = useSelector((state) => state.issReducer.iss);
   const latitude = iss.iss_position.latitude;
   const longitude = iss.iss_position.longitude;
   const positionISS = [latitude, longitude];
 
-  useEffect(() => {
-    setInterval(() => {
-      dispatch(getIssFetch());
-    }, 1000);
-  }, [dispatch]);
-
   return (
     <MapContainer
       center={positionISS}
       zoom={2}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
       minZoom={2}
       maxZoom={7}
     >

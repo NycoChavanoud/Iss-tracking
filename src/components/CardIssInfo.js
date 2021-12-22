@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/CardIssInfo.css";
-import { useDispatch, useSelector } from "react-redux";
-import { getIssFetch } from "../actions/actions";
+import { useSelector } from "react-redux";
 
 const CardIssInfo = () => {
-  const dispatch = useDispatch();
   const iss = useSelector((state) => state.issReducer.iss);
   const message = iss.message;
   const latitude = iss.iss_position.latitude;
@@ -20,13 +18,6 @@ const CardIssInfo = () => {
   const formattedTime = !timestamp
     ? ""
     : hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
-
-  //dispatch every seconds
-  useEffect(() => {
-    setInterval(() => {
-      dispatch(getIssFetch());
-    }, 1000);
-  }, [dispatch]);
 
   return (
     <div className="information-live-container">
