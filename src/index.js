@@ -5,8 +5,8 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import issReducer from "./reducers/issReducer";
-import mySaga from "./sagas/sagas";
+import issReducer from "./redux/reducers/issReducer";
+import mySaga from "./redux/sagas/sagas";
 //devtools
 import { composeWithDevTools } from "redux-devtools-extension";
 
