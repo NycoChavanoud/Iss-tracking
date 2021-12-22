@@ -1,7 +1,14 @@
-import "./App.css";
+import CardIssInfo from "./components/CardIssInfo";
+import Map from "./components/Map";
+import "./styles/App.css";
 
 function App() {
-  return <div className="App">TEST</div>;
+  return (
+    <div className="home-page">
+      <Map />
+      <CardIssInfo />
+    </div>
+  );
 }
 
 export default App;
