@@ -8,7 +8,7 @@ import "../styles/Map.css";
 // Change the leaflet Market by the ISS Icon
 const IssIcon = () => {
   return L.icon({
-    iconUrl: require("../assets/icons/iss_logo.png"),
+    iconUrl: require("../assets/icons/international-space-station.png"),
     iconSize: [30, 30],
   });
 };
@@ -16,7 +16,7 @@ const IssIcon = () => {
 // Map
 
 const Map = () => {
-  const centerPosition = [45.764043, 4.835659];
+  //const centerPosition = [45.764043, 4.835659];
   const dispatch = useDispatch();
   const iss = useSelector((state) => state.issReducer.iss);
   const latitude = iss.iss_position.latitude;
@@ -31,7 +31,7 @@ const Map = () => {
 
   return (
     <MapContainer
-      center={centerPosition}
+      center={positionISS}
       zoom={2}
       scrollWheelZoom={false}
       minZoom={2}
@@ -43,7 +43,11 @@ const Map = () => {
       />
 
       <Marker position={positionISS} icon={IssIcon()}>
-        <Popup>ISS position</Popup>
+        <Popup>
+          <h4>ISS position </h4> latitude :{" "}
+          <span className="data-popup"> {latitude} </span> <br />
+          longitude : <span className="data-popup"> {longitude} </span>
+        </Popup>
       </Marker>
     </MapContainer>
   );

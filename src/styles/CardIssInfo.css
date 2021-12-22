@@ -11,35 +11,17 @@
   align-items: center;
 }
 
-.btn-iss-tracking {
-  height: 122px;
-  width: 122px;
-  background: orangered;
-  color: #f1f1f1;
-  font-size: 1em;
-  font-weight: 600;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  margin: 10px;
-  box-shadow: 0px 0px 8px 2px #f1f1f1;
-}
-
-.btn-iss-tracking:hover {
-  background: linear-gradient(orangered, rgb(75, 33, 18));
-  color: rgb(75, 33, 18);
-}
-
 .iss-data-container {
   height: 120px;
   min-width: 280px;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   border: 2px solid orangered;
   border-radius: 10px;
   margin-left: 10px;
   padding: 0px 10px;
+  box-shadow: 0px 0px 8px 2px #f1f1f1;
 }
 
 .data-api {
@@ -56,4 +38,10 @@
 
 .data-display {
   color: #f1f1f1;
+}
+h4 {
+  margin: 5px auto;
+}
+.data-api {
+  margin: 5px auto;
 }

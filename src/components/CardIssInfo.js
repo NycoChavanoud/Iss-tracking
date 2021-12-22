@@ -6,14 +6,22 @@ import { getIssFetch } from "../actions/actions";
 const CardIssInfo = () => {
   const dispatch = useDispatch();
   const iss = useSelector((state) => state.issReducer.iss);
+  const message = iss.message;
   const latitude = iss.iss_position.latitude;
   const longitude = iss.iss_position.longitude;
   const timestamp = iss.timestamp;
 
-  // useffect.. setinterval 1s...
+  //forrmat timestamp in local time
+  let unix_timestamp = timestamp;
+  const date = new Date(unix_timestamp * 1000);
+  const hours = date.getHours();
+  const minutes = "0" + date.getMinutes();
+  const seconds = "0" + date.getSeconds();
+  const formattedTime = !timestamp
+    ? ""
+    : hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
 
-  //redux persist
-
+  //dispatch every seconds
   useEffect(() => {
     setInterval(() => {
       dispatch(getIssFetch());
@@ -22,20 +30,22 @@ const CardIssInfo = () => {
 
   return (
     <div className="information-live-container">
-      <button className="btn-iss-tracking">iss tracking</button>
       <div className="iss-data-container">
         <h4>
           connection status :{" "}
-          {!iss.message ? (
-            <span id="disconnected">disconnected</span>
+          {!message ? (
+            <span id="disconnected">Failed</span>
           ) : (
-            <span id="connected">{iss.message}</span>
+            <span id="connected">{message}</span>
           )}
         </h4>
         <div className="data-api">
           <div className="info-time">
             {" "}
             timestamp : <span className="data-display"> {timestamp} </span>
+          </div>
+          <div className="local-date">
+            local hour : <span className="data-display"> {formattedTime} </span>
           </div>
           <div className="info-lat">
             {" "}
