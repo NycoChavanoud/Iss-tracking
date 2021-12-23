@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/CardIssInfo.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import IconHome from "../assets/icons/accueil.png";
 
 const CardIssInfo = () => {
   const iss = useSelector((state) => state.issReducer.iss);
@@ -20,7 +22,7 @@ const CardIssInfo = () => {
     : hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
 
   return (
-    <div className="information-live-container">
+    <div className="dashboard-container">
       <div className="iss-data-container">
         <h4>
           connection status :{" "}
@@ -48,6 +50,9 @@ const CardIssInfo = () => {
           </div>
         </div>
       </div>
+      <Link to="/" id="back-home">
+        <img src={IconHome} alt="icon" id="home-icon" />
+      </Link>
     </div>
   );
 };

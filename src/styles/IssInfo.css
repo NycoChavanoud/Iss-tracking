@@ -1,0 +1,9 @@
+body {
+  background: #070a14;
+  color: #f1f1f1;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
