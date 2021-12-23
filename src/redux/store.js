@@ -1,18 +1,37 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
-import issReducer from "./reducers/issReducer";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import rootReducer from "./root-reducer";
 import mySaga from "./sagas/sagas";
+
+//logger for redux (to use add copy' (applyMiddleware(sagaMiddleware, logger) ')
+import logger from "redux-logger";
 
 //devtools - remove after prod
 import { composeWithDevTools } from "redux-devtools-extension";
 
+// config persist
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+// it's the persisted reducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// sagaMiddleware setup
 const sagaMiddleware = createSagaMiddleware();
-const rootReducer = combineReducers({ issReducer });
+
+//my store
 const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
+  persistedReducer,
+  composeWithDevTools(applyMiddleware(sagaMiddleware, logger))
   // applyMiddleware(sagaMiddleware)
 );
+
+const persistor = persistStore(store);
+
 sagaMiddleware.run(mySaga);
 
-export default store;
+export { store, persistor };
