@@ -11,7 +11,7 @@ const Home = () => {
       <img src={spaceVue} alt="vue-de-l'espace" id="vue-iss" />
       <Link to="/iss-info" className="enter-tracking">
         {" "}
-        iss tracking
+        Click here
       </Link>
     </div>
   );
