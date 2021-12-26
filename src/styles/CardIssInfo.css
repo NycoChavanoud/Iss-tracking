@@ -73,3 +73,26 @@ h4 {
   height: 50px;
   width: 50px;
 }
+
+#stop-btn {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 8px 2px #f1f1f1;
+}
+
+#stop-btn:hover {
+  background: linear-gradient(red, rgb(75, 33, 18));
+  color: rgb(75, 33, 18);
+}
+
+#stop-icon {
+  height: 90px;
+  width: 90px;
+}

@@ -5,7 +5,7 @@ import storage from "redux-persist/lib/storage";
 import rootReducer from "./root-reducer";
 import mySaga from "./sagas/sagas";
 
-//logger for redux (to use add copy' (applyMiddleware(sagaMiddleware, logger) ')
+//logger for redux (to use add : (applyMiddleware(sagaMiddleware, logger)) - remove after prod
 import logger from "redux-logger";
 
 //devtools - remove after prod
