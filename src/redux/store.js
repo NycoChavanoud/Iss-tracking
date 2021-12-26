@@ -11,18 +11,14 @@ const persistConfig = {
   storage,
 };
 
-// it's the persisted reducer
+// the persisted reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // sagaMiddleware setup
 const sagaMiddleware = createSagaMiddleware();
 
 //my store
-const store = createStore(
-  persistedReducer,
-
-  applyMiddleware(sagaMiddleware)
-);
+const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
 
 const persistor = persistStore(store);
 
