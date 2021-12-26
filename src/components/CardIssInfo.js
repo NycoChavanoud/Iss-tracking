@@ -3,9 +3,8 @@ import "../styles/CardIssInfo.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import IconHome from "../assets/icons/accueil.png";
-import IconStop from "../assets/icons/stop.png";
 
-const CardIssInfo = () => {
+const CardIssInfo = ({ isActive }) => {
   const iss = useSelector((state) => state.issReducer.iss);
   const message = iss.message;
   const latitude = iss.iss_position.latitude;
@@ -51,9 +50,7 @@ const CardIssInfo = () => {
           </div>
         </div>
       </div>
-      <button id="stop-btn">
-        <img src={IconStop} alt="icon" id="stop-icon" />
-      </button>
+
       <div className="cmd-info"></div>
       <Link to="/" id="back-home">
         <img src={IconHome} alt="icon" id="home-icon" />
