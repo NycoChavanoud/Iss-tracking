@@ -18,7 +18,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 // };
 
 // it's the persisted reducer
-// const persistedReducer = persistReducer(persistConfig, rootReducer);
+//const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // sagaMiddleware setup
 const sagaMiddleware = createSagaMiddleware();
@@ -26,6 +26,7 @@ const sagaMiddleware = createSagaMiddleware();
 //my store
 const store = createStore(
   // persistedReducer,
+  rootReducer,
   composeWithDevTools(applyMiddleware(sagaMiddleware, logger))
   // applyMiddleware(sagaMiddleware)
 );
