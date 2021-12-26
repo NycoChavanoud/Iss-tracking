@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import spaceImg from "../assets/img/iss.png";
+import spaceImg from "../assets/img/iss.jpeg";
 import "../styles/Home.css";
 
 const Home = () => {
