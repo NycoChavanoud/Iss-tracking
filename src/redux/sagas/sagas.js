@@ -3,7 +3,7 @@ import { GET_ISS_FETCH, GET_ISS_SUCCESS } from "../actions/actions";
 
 function issFetch() {
   return fetch("http://api.open-notify.org/iss-now.json").then((res) =>
-    res.json()
+    res.json().catch((err) => console.error("error : ", err))
   );
 }
 

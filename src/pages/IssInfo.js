@@ -5,7 +5,7 @@ import { getIssFetch } from "../redux/actions/actions";
 import CardIssInfo from "../components/CardIssInfo";
 import Map from "../components/Map";
 import "../styles/IssInfo.css";
-//import IconStop from "../assets/icons/stop.png";
+import IconStop from "../assets/icons/stop.png";
 
 function IssInfo() {
   const dispatch = useDispatch();
@@ -24,24 +24,27 @@ function IssInfo() {
   // }, [dispatch, setIsActive, isActive]);
 
   //dispatching data every seconds
-  useEffect(() => {
-    setInterval(() => {
-      dispatch(getIssFetch());
-    }, 1000);
-  }, [dispatch]);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     dispatch(getIssFetch());
+  //   }, 1000);
+  // }, [dispatch]);
+  setInterval(() => {
+    dispatch(getIssFetch());
+  }, 1000);
 
   // const stopAction = () => {
   //   setIsActive(!isActive);
-  //   console.log("click this button");
+  //   console.log("click this stuff");
   // };
 
   return (
     <div className="home-page">
       <Map />
       <div className="stop-and-info">
-        {/* <button id="stop-btn" onClick={stopAction}>
+        <button id="stop-btn">
           <img src={IconStop} alt="icon" id="stop-icon" />
-        </button> */}
+        </button>
         <CardIssInfo />
       </div>
     </div>
