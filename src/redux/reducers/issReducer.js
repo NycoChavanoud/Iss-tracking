@@ -1,4 +1,4 @@
-import { GET_ISS_SUCCESS } from "../actions/actions";
+import { FETCH_ISS_DATA } from "../actions/actions";
 
 const issReducer = (
   state = {
@@ -11,7 +11,7 @@ const issReducer = (
   action
 ) => {
   switch (action.type) {
-    case GET_ISS_SUCCESS:
+    case FETCH_ISS_DATA:
       return { ...state, iss: action.iss };
     default:
       return state;

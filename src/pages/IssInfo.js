@@ -1,24 +1,20 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getIssFetch } from "../redux/actions/actions";
+import React from "react";
+import { Link } from "react-router-dom";
 import CardIssInfo from "../components/CardIssInfo";
 import Map from "../components/Map";
+import IconHome from "../assets/icons/accueil.png";
 import "../styles/IssInfo.css";
 
 function IssInfo() {
-  const dispatch = useDispatch();
-
-  //dispatching data every seconds
-  useEffect(() => {
-    setInterval(() => {
-      dispatch(getIssFetch());
-    }, 1000);
-  }, [dispatch]);
-
   return (
     <div className="home-page">
       <Map />
-      <CardIssInfo />
+      <div className="stop-and-info">
+        <CardIssInfo />
+        <Link to="/" id="back-home">
+          <img src={IconHome} alt="icon" id="home-icon" />
+        </Link>
+      </div>
     </div>
   );
 }

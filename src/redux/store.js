@@ -5,12 +5,6 @@ import storage from "redux-persist/lib/storage";
 import rootReducer from "./root-reducer";
 import mySaga from "./sagas/sagas";
 
-//logger for redux (to use add copy' (applyMiddleware(sagaMiddleware, logger) ')
-import logger from "redux-logger";
-
-//devtools - remove after prod
-import { composeWithDevTools } from "redux-devtools-extension";
-
 // config persist
 const persistConfig = {
   key: "root",
@@ -26,8 +20,8 @@ const sagaMiddleware = createSagaMiddleware();
 //my store
 const store = createStore(
   persistedReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware, logger))
-  // applyMiddleware(sagaMiddleware)
+
+  applyMiddleware(sagaMiddleware)
 );
 
 const persistor = persistStore(store);
