@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/CardIssInfo.css";
 import { useSelector, useDispatch } from "react-redux";
 import { startLoopStatus, stopLoopStatus } from "../redux/actions/actions";
+
 import pauseIcon from "../assets/icons/pause.png";
 import startIcon from "../assets/icons/start.png";
 
@@ -50,7 +51,7 @@ const CardIssInfo = () => {
         <h4>
           connection status :{" "}
           {isOn === false ? (
-            <span id="disconnected">stoped</span>
+            <span id="disconnected">stopped</span>
           ) : (
             <span id="connected">{message}</span>
           )}

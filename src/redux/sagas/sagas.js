@@ -1,5 +1,5 @@
 import { call, put, take, fork, cancel } from "redux-saga/effects";
-import { GET_ISS_SUCCESS, START_LOOP, STOP_LOOP } from "../actions/actions";
+import { FETCH_ISS_DATA, START_LOOP, STOP_LOOP } from "../actions/actions";
 
 function issFetch() {
   return fetch("http://api.open-notify.org/iss-now.json").then((res) =>
@@ -11,8 +11,7 @@ const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 function* workGetIssFetch() {
   while (true) {
     const iss = yield call(issFetch);
-    yield put({ type: GET_ISS_SUCCESS, iss });
-    console.log("inside function");
+    yield put({ type: FETCH_ISS_DATA, iss });
     yield delay(1000);
   }
 }
